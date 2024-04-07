@@ -7,7 +7,7 @@
 - React Three Fiber / npm install @react-three/fiber
 > react-three/fiber est un wrapper pour Three.js dans l'écosystème React. Il fournit une couche d'abstraction pour utiliser Three.js avec React de manière plus efficace et plus intuitive. La principale caractéristique de react-three/fiber est qu'il repose sur une architecture de rendu appelée "React Fiber", d'où son nom.
 
-** Explication du Code **
+**Explication du Code**
 
 - <Canvas> : C'est un composant fourni par @react-three/fiber qui crée un conteneur de scène WebGL dans votre application React. Il encapsule tous les éléments 3D de votre scène.
 
