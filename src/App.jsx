@@ -1,17 +1,24 @@
 import { Canvas } from "@react-three/fiber";
-
-function App() {
+import { OrbitControls,Center } from "@react-three/drei";
+import "./App.css";
+function App({ position = [-1, 0, 2.5], fov = 25 }) {
   return (
-    <Canvas>
-      <Shrit /> 
+    <Canvas
+    eventSource={document.getElementById("root")}
+    
+    camera={{ position, fov }}>
+      <Center>
+        <Shirt />
+      </Center>
+      <OrbitControls />
     </Canvas>
   );
 }
 
-function Shrit() {
+function Shirt() {
   return (
     <mesh>
-      <boxGeometry args={[25, 18,2]} />
+      <boxGeometry args={[0.9, 0.9, 0.9]} />
       <meshNormalMaterial />
     </mesh>
   );

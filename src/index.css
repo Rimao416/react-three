@@ -6,3 +6,11 @@
 
 
 }
+*{
+  box-sizing: border-box;
+}
+
+canvas {
+  
+  touch-action: none;
+}
