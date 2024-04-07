@@ -1,26 +1,16 @@
-# Cours Three.Js
+# Cours Three.Js 
+
+## 02_ChargerChemise
 
 **Packages à Installer**
-- React Three Drei / npm install @react-three/drei
- > Le package react-three/drei est une bibliothèque complémentaire pour React et Three.js, une bibliothèque JavaScript 3D. Il offre une gamme de composants, de hooks et d'utilitaires pour simplifier le processus de développement d'applications WebGL 3D avec React.
+- <group {...props} dispose={null}>: Cela crée un groupe d'objets en 3D qui peut être manipulé ensemble. Les propriétés props sont propagées au groupe. dispose={null} signifie que les ressources associées au groupe ne sont pas libérées automatiquement lors de la suppression du composant. Cela peut être utile lorsque vous utilisez useGLTF pour charger des modèles 3D, car cela gère déjà la libération des ressources.
 
-- React Three Fiber / npm install @react-three/fiber
-> react-three/fiber est un wrapper pour Three.js dans l'écosystème React. Il fournit une couche d'abstraction pour utiliser Three.js avec React de manière plus efficace et plus intuitive. La principale caractéristique de react-three/fiber est qu'il repose sur une architecture de rendu appelée "React Fiber", d'où son nom.
+- <mesh castShadow receiveShadow geometry={nodes.T_Shirt_male.geometry} material={materials.lambert1} />: Cela crée un objet en 3D de type "mesh" représentant la chemise. Les propriétés castShadow et receiveShadow indiquent que cet objet doit lancer des ombres et recevoir des ombres d'autres objets. geometry est défini sur nodes.T_Shirt_male.geometry, ce qui signifie qu'il utilise la géométrie de la chemise à partir du fichier GLTF chargé (nodes.T_Shirt_male représente le nœud de la chemise dans le fichier GLTF). material est défini sur materials.lambert1, ce qui indique le matériau à utiliser pour afficher la chemise. Dans ce cas, le matériau est lambert1, qui est probablement un matériau prédéfini inclus dans le fichier GLTF.
 
-**Explication du Code**
+- <AccumulativeShadows ...>: Cela crée un composant pour les ombres accumulatives dans la scène. Les propriétés spécifiées, telles que temporal, frames, alphaTest, scale, rotation et position, contrôlent différents aspects de la manière dont les ombres sont générées et affichées.
 
-- <Canvas> : C'est un composant fourni par @react-three/fiber qui crée un conteneur de scène WebGL dans votre application React. Il encapsule tous les éléments 3D de votre scène.
+- <RandomizedLight ...>: Cela crée un composant pour une lumière aléatoire dans la scène. Les propriétés telles que amount, radius, intensity, ambient et position définissent différents paramètres de la lumière, tels que le nombre de lumières, le rayon, l'intensité, l'éclairage ambiant et la position. Dans cet exemple, deux lumières aléatoires sont créées avec des paramètres différents et sont placées à des positions spécifiques dans la scène.
 
-> D'après ce que j'ai compris, c'est lui qui rend notre élément 3D, si vous le retirez, vous ne verrez pas votre élément 3D
+- Enfin, useGLTF.preload("/shirt_baked.glb") précharge le modèle de chemise en 3D pour améliorer les performances de chargement lors de l'affichage de la scène.
 
-
-- eventSource et eventPrefix : Ces propriétés sont utilisées pour spécifier la source des événements pour les contrôles de caméra. Dans cet exemple, vous avez défini document.getElementById("root") comme source des événements, ce qui signifie que les événements seront écoutés au niveau du composant ayant l'ID "root" dans votre DOM. La propriété eventPrefix est utilisée pour spécifier le préfixe des événements, dans ce cas, "client".
-
-- camera : C'est une propriété de <Canvas> qui permet de définir les propriétés de la caméra de la scène. Vous avez spécifié une position par défaut pour la caméra en utilisant les coordonnées [position] et un champ de vision (fov) de 25 degrés.
-
-- <Center> : C'est un composant fourni par @react-three/drei qui est utilisé pour centrer son contenu dans la scène. Dans cet exemple, il est utilisé pour centrer le contenu de la scène, qui est un composant <Shrit /> (il semble qu'il y ait une faute de frappe dans le nom du composant, c'est peut-être <Shirt />).
-
-- <OrbitControls> : C'est un composant fourni par @react-three/drei qui ajoute des contrôles d'orbite à la caméra de la scène, permettant à l'utilisateur de naviguer autour des objets de la scène en utilisant la souris ou les gestes tactiles.
-
-> C'est que j'ai compris est que c'est grâce à lui que l'utilisateur peut bouger le cube
 
